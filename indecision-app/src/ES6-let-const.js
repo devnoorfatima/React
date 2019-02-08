@@ -9,7 +9,6 @@ class Es6 extends Component {
         console.log(age);
         return (      
         <div className="es6">
-        <p>KJ</p>
         </div>
       );
     }
