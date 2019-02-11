@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Es6 from "./ES6-let-const"
 import Arrow from "./ES6-arrow-functions"
+import Arrow2 from "./ES6-arrow-functions-2"
 import './App.css';
 
 //Conditional Rendering
@@ -26,6 +27,7 @@ function getLocation(location) {
       
       <Es6 />
       <Arrow />
+      <Arrow2 />
       </div>
     );
   }
