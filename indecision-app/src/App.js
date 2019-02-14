@@ -2,10 +2,11 @@
 // import Es6 from "./ES6-let-const"
 // import Arrow from "./ES6-arrow-functions"
 // import Arrow2 from "./ES6-arrow-functions-2"
-import Counter from "./Counter"
-import './App.css';
+// import Counter from "./Counter"
+import Form from "./indecisionApp"
+// import './App.css';
 
-//Conditional Rendering
+
 // class App extends Component {
 //   render() {
  
@@ -29,9 +30,10 @@ import './App.css';
 //       <Es6 />
 //       <Arrow />
 //       <Arrow2 />
+//       <Counter />
 //       </div>
 //     );
 //   }
 // }
 
-export default Counter;
+export default Form;
