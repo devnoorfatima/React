@@ -33,9 +33,9 @@ class Count extends Component {
   
      <div>
       <h1>Current Count: {this.state.count}</h1>
-      <button className='inc' onClick={(e) => this.increment(e)}>+1</button>
-      <button className='dec' onClick={(e) => this.decrement(e)}>-1</button>
-      <button className='reset' onClick={(e) => this.reset(e)}>Reset</button>
+      <button  onClick={(e) => this.increment(e)}>+1</button>
+      <button  onClick={(e) => this.decrement(e)}>-1</button>
+      <button  onClick={(e) => this.reset(e)}>Reset</button>
     </div>
       );
     }

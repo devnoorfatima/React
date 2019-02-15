@@ -14,14 +14,19 @@ class Form extends Component {
        if(option){
          user.options.push(option);
          e.target.elements.option.value = "";
+         console.log(user.options);
        }
-    }
+    };
+    const onRemoveAll = () => {
+     user.options = [];
+    };
       return (      
         <div className="form">
         <h1>{user.title}</h1>
         {user.subtitle && <p>{user.subtitle}</p>}        
         <p>{user.options.length > 0 ? "Here are your options" : "No options"}</p>
         <p>{user.options.length}</p>
+        <button onClick={onRemoveAll}>Remove All</button>
         <ol>
           <li>Item one</li>
           <li>Item two</li>
