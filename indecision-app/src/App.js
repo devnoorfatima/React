@@ -3,7 +3,8 @@
 // import Arrow from "./ES6-arrow-functions"
 // import Arrow2 from "./ES6-arrow-functions-2"
 // import Counter from "./Counter"
-import Form from "./indecisionApp"
+// import Form from "./indecisionApp"
+import Toogle from "./Visibility-toogle";
 // import './App.css';
 
 
@@ -36,4 +37,4 @@ import Form from "./indecisionApp"
 //   }
 // }
 
-export default Form;
+export default Toogle;
