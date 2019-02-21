@@ -4,7 +4,7 @@ class Toogle extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          show: true
+          show: false
         };
     }
     ToggleClick = () => {
@@ -15,7 +15,7 @@ class Toogle extends Component {
         <div className="toogle">
         <h1>Visibility Toogle</h1>
         <button onClick={this.ToggleClick}>
-          { this.state.show ? 'Hide details' : 'Show details' }
+          { this.state.show ?  'Show details' : 'Hide details' }
         </button>
         { this.state.show ? <h2>These are the details...</h2> : '' }
         </div>
