@@ -1,40 +1,26 @@
-// import React, { Component } from 'react';
-// import Es6 from "./ES6-let-const"
-// import Arrow from "./ES6-arrow-functions"
-// import Arrow2 from "./ES6-arrow-functions-2"
-// import Counter from "./Counter"
-// import Form from "./indecisionApp"
-import Toogle from "./Visibility-toogle";
-// import './App.css';
+import React, { Component } from 'react';
+import Header from "./header"
+import Action from "./action"
+import Options from "./options"
+import Add from "./add-option"
+import Input from "./submit"
 
+class App extends Component {
+  render() {
+    const title = "Indecision";
+    const subtitle = "Give your life in the hands of Computer";
+    const options = ["one", "Two", "Three"];
+    return (      
+      <div className="App">
+         <Header title = {title} subtitle = {subtitle} />
+         <Action />
+         <Options options={options}/>
+         <Add />
+         <Input />
+    
+      </div>
+    );
+  }
+}
 
-// class App extends Component {
-//   render() {
- 
-// const user = {
-//   name : "Noor",
-//   age : 27,
-//   location: "Lahore"
-// };
-
-// function getLocation(location) {
-//   if(location){
-//     return <p>location:{location}</p>;
-//   }
-// }
-//     return (      
-//       <div className="App">
-//           <h1>{user.name ? user.name : "Anonymous"}</h1>
-//           {user.age >= 18 && <p>Age : {user.age}</p>}
-//           {getLocation(user.location)}
-      
-//       <Es6 />
-//       <Arrow />
-//       <Arrow2 />
-//       <Counter />
-//       </div>
-//     );
-//   }
-// }
-
-export default Toogle;
+export default App;
