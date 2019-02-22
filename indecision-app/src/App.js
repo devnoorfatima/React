@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import Header from "./header"
 import Action from "./action"
-import Options from "./options"
-import Add from "./add-option"
+import Options from "./options"  
 import Input from "./submit"
 
 class App extends Component {
@@ -10,17 +9,18 @@ class App extends Component {
     super(props);
    this.handleDeleteAll = this.handleDeleteAll.bind(this);
    this.handlePick = this.handlePick.bind(this);
+   this.handleAddOption = this.handleAddOption.bind(this);
+   this.handleDeleteOption = this.handleDeleteOption.bind(this);
     this.state = {
-      options : ["one", "Two", "Three"]
+      options : []
     }
   }
   
   handleDeleteAll() {
- this.setState(() => {
-   return {
-    options:[]
-   };
- })
+ this.setState(() => ({options:[]}));
+}
+  handleDeleteOption(option) {
+console.log(option);
   }
    
   handlePick () {
@@ -28,13 +28,22 @@ class App extends Component {
      const option = this.state.options[randomNum];
       alert(option);
   }
+
+  handleAddOption (option) {
+   if(!option){
+     return "Enter a valid option."
+   }else if (this.state.options.indexOf(option) > -1) {
+     return "This option already exists."
+   }
+   
+    this.setState((prevState) => ({options : prevState.options.concat(option)}))
+  }
   
   render() {
-    const title = "Indecision";
     const subtitle = "Give your life in the hands of Computer";
     return (      
       <div className="App">
-         <Header title = {title} subtitle = {subtitle} />
+         <Header subtitle = {subtitle} />
          <Action 
          hasOptions= {this.state.options.length > 0}
          handlePick = {this.handlePick} 
@@ -42,9 +51,9 @@ class App extends Component {
          <Options
           options={this.state.options}
           handleDeleteAll ={this.handleDeleteAll}
+          handleDeleteOption ={this.handleDeleteOption}
           />
-         <Add />
-         <Input />
+         <Input handleAddOption = {this.handleAddOption} />
       </div>
     );
   }
