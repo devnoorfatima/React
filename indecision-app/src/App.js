@@ -19,8 +19,28 @@ class App extends Component {
   handleDeleteAll() {
  this.setState(() => ({options:[]}));
 }
-  handleDeleteOption(option) {
-console.log(option);
+  componentDidMount() {
+    const json = localStorage.getItem("options");
+    const options = JSON.parse(json);
+    if(options) {
+      this.setState(() => ({options}));
+    }
+    
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if(prevState.options.length !== this.state.options.length) {
+      const json = JSON.stringify(this.state.options);
+      localStorage.setItem("options", json);
+    }   
+  }
+  componentWillUnmount() {
+    console.log("component will unmount");
+  }
+ 
+  handleDeleteOption(optionToRemove) {
+    this.setState((prevState)=> ({
+      options:prevState.options.filter((option) => optionToRemove !== option)
+    }));
   }
    
   handlePick () {
