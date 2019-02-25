@@ -3,6 +3,8 @@ import Header from "./header"
 import Action from "./action"
 import Options from "./options"  
 import Input from "./submit"
+import OptionModal from "./Option.modal"
+import './App.scss';
 
 class App extends Component {
   constructor (props) {
@@ -11,8 +13,10 @@ class App extends Component {
    this.handlePick = this.handlePick.bind(this);
    this.handleAddOption = this.handleAddOption.bind(this);
    this.handleDeleteOption = this.handleDeleteOption.bind(this);
+   this.handleRemoveModal  = this.handleRemoveModal.bind(this);
     this.state = {
-      options : []
+      options : [],
+      selectedOption :undefined
     }
   }
   
@@ -42,11 +46,13 @@ class App extends Component {
       options:prevState.options.filter((option) => optionToRemove !== option)
     }));
   }
-   
+  
   handlePick () {
     const randomNum = Math.floor(Math.random() * this.state.options.length);
      const option = this.state.options[randomNum];
-      alert(option);
+     this.setState(() => ({ 
+      selectedOption : option
+       }));
   }
 
   handleAddOption (option) {
@@ -57,6 +63,12 @@ class App extends Component {
    }
    
     this.setState((prevState) => ({options : prevState.options.concat(option)}))
+  }
+
+  handleRemoveModal= () => {
+    this.setState(() => ({ 
+      selectedOption : undefined
+       }));
   }
   
   render() {
@@ -74,6 +86,10 @@ class App extends Component {
           handleDeleteOption ={this.handleDeleteOption}
           />
          <Input handleAddOption = {this.handleAddOption} />
+         <OptionModal 
+         selectedOption = {this.state.selectedOption}
+         handleRemoveModal = {this.handleRemoveModal}
+         />
       </div>
     );
   }
