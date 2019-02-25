@@ -22,10 +22,14 @@ class Input extends Component {
     render() {
       return (      
         <div className="Input">
-        {this.state.error && <p>{this.state.error}</p>}
-        <form onSubmit = {this.handleAddOption}>
-        <input type ="text" name="option" />
-         <button >Submit</button>
+        {this.state.error && <p className="widget--message">{this.state.error}</p>}
+        <form className="add-option" onSubmit = {this.handleAddOption}>
+        <input className="add-option--input" type ="text" name="option" />
+         <button
+          className="button"
+          >
+          Submit
+          </button>
         </form>
         </div>
       );

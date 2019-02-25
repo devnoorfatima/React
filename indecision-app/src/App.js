@@ -4,6 +4,7 @@ import Action from "./action"
 import Options from "./options"  
 import Input from "./submit"
 import OptionModal from "./Option.modal"
+import "normalize.css/normalize.css"
 import './App.scss';
 
 class App extends Component {
@@ -75,18 +76,22 @@ class App extends Component {
     const subtitle = "Give your life in the hands of Computer";
     return (      
       <div className="App">
-         <Header subtitle = {subtitle} />
+     <Header subtitle = {subtitle} />
+      <div className="container" >
          <Action 
          hasOptions= {this.state.options.length > 0}
          handlePick = {this.handlePick} 
          />
+          <div className="widget">
          <Options
           options={this.state.options}
           handleDeleteAll ={this.handleDeleteAll}
           handleDeleteOption ={this.handleDeleteOption}
           />
          <Input handleAddOption = {this.handleAddOption} />
-         <OptionModal 
+         </div>
+         </div>
+      <OptionModal 
          selectedOption = {this.state.selectedOption}
          handleRemoveModal = {this.handleRemoveModal}
          />
