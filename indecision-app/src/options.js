@@ -21,7 +21,7 @@ const Options = (props) => {
         <div className="Options">
         <div className="widget-header">
         <h3 className="widget--title">Your Options</h3>
-        <button onClick ={props.handleDeleteAll}>Remove All</button>
+        <button className="button--link" onClick ={props.handleDeleteAll}>Remove All</button>
         </div>
         {
         props.options.map((option, index) =>
