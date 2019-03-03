@@ -17,7 +17,7 @@ class AppRouter extends Component {
   <Switch>
   <Route path ='/' component={ExpenceDashboardPage} exact={true} />
   <Route path ='/create' component={AddExpencePage} />
-  <Route path ='/edit' component={EditPage} />
+  <Route path ='/edit/:id' component={EditPage} />
   <Route path ='/help' component={HelpPage} />
   <Route component={NotFoundPage}/>
   </Switch>
