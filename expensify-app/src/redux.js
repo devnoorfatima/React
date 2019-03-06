@@ -12,14 +12,19 @@ import {createStore} from 'redux';
 // console.log(name);
 
 // Destructuring  objects
-const  item = ["coffee(iced)","$2","$2.50","$2.75"];
-const [coffee, ,medium, ] = item
-console.log(`A medium ${coffee} costs ${medium}.`)
+// const  item = ["coffee(iced)","$2","$2.50","$2.75"];
+// const [coffee, ,medium, ] = item
+// console.log(`A medium ${coffee} costs ${medium}.`)
+
+
+const incrementCount = (payload = {}) => ({
+    type: 'INCREMENT',
+    incrementBy: typeof payload.incrementBy === 'number' ? payload.incrementBy : 1
+});
 
 const Store = createStore((state = {count : 0}, action) => {
 switch (action.type){
     case 'INCREMENT':
-    const incrementBy = typeof action.incrementBy === 'number' ? action.incrementBy : 1;
     return {
         count : state.count + incrementBy
     };
@@ -29,7 +34,7 @@ switch (action.type){
    case 'RESET':
    return {
       count : 0
-  };
+  };k
 
 
     case 'DECREMENT':
