@@ -1,86 +1,18 @@
-import {createStore} from 'redux';
-// Destructuring  objects
-// const book= {
-//     title : "hello",
-//     author: "finny",
-//     publisher:{
-//         name: 'blu'
-//     }
-// };
+import {createStore , combineReducers} from 'redux';
 
-// const {name = 'self-published'}= book.publisher;
-// console.log(name);
-
-// Destructuring  objects
-// const  item = ["coffee(iced)","$2","$2.50","$2.75"];
-// const [coffee, ,medium, ] = item
-// console.log(`A medium ${coffee} costs ${medium}.`)
-
-
-const incrementCount = (payload = {}) => ({
-    type: 'INCREMENT',
-    incrementBy: typeof payload.incrementBy === 'number' ? payload.incrementBy : 1
-});
-
-const Store = createStore((state = {count : 0}, action) => {
-switch (action.type){
-    case 'INCREMENT':
-    return {
-        count : state.count + incrementBy
-    };
-
-   //Reset 
-
-   case 'RESET':
-   return {
-      count : 0
-  };k
-
-
-    case 'DECREMENT':
-    const decrementBy = typeof action.decrementBy === 'number' ? action.decrementBy : 1; 
-     return {
-        count : state.count - decrementBy
-    };
-    
-    default:
-    return state;
-}   
-});
-
-Store.subscribe(()=> {
-console.log(Store.getState());
-})
-Store.dispatch(
-    {
-        type: 'INCREMENT',
-        incrementBy: 5
+const demoState = {
+    expenses: [{
+        id:'123456',
+        description:'August treat ',
+        note:'This is the final expense.',
+        amount:54214,
+        createdAt:0
+    }],
+    filters: {
+        text:'rent',
+        sortBy:'amount',
+        startDate:undefined,
+        endDate:undefined
     }
-);
-
-Store.dispatch(
-    {
-        type: 'INCREMENT'
-    }
-);
-Store.dispatch(
-    {
-        type: 'RESET'
-    }
-);
-
-
-Store.dispatch(
-    {
-        type: 'DECREMENT',
-        decrementBy : 10
-    }
-);
-
-
-Store.dispatch(
-    {
-        type: 'DECREMENT'
-    }
-);
-export default Store;
+};
+export default createStore;
