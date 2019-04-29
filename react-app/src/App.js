@@ -13,7 +13,7 @@ class App extends Component{
       {
         id:2,
         title:'unpack it',
-        completed:false
+        completed:true
       },
       {
         id:3,
@@ -22,10 +22,13 @@ class App extends Component{
       }
     ]
   }
+  markComplete=()=> {
+    console.log('from js')
+  }
   render() {
     return (
       <div>
-     <Todos todos={this.state.todos} />
+     <Todos todos={this.state.todos} markComplete={this.markComplete} />
       </div>
     );
   
