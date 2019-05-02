@@ -2,8 +2,11 @@
 body{
     font-family: Poppins;
     text-align: center;
+    background: url(./bg.jpeg) no-repeat;
+    background-size: cover;
 }
  
+
 /* Styles for location.js */
 .align{
     display:flex;
@@ -14,3 +17,4 @@ body{
 .space{
     margin-right: 3rem;
 }    
+
